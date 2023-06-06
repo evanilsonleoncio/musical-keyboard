@@ -1,0 +1,392 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	user-select: none;
+}
+
+html {
+	overflow: hidden;
+}
+
+.container {
+	display: grid;
+	grid-template: repeat(2, 6% 94%) / repeat(1, 100%);
+	width: 100vw;
+	height: 100vh;
+}
+
+.header-controls {
+	display: flex;
+	justify-content: end;
+	align-items: end;
+}
+
+.header-controls div {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	height: 4.8vh;
+	aspect-ratio: 1 / 1;
+	margin-right: 30px;
+	border-radius: 50%;
+	background-color: rgba(210,210,210,1);
+	cursor: pointer;
+}
+
+.header-controls div:hover {
+	transform: scale(1.25);
+}
+
+.header-controls div:nth-child(1) {
+	position: absolute;
+	z-index: -1;
+	width: 4.8vh;
+	aspect-ratio: 1 / 1;
+	background-color: rgba(30,30,30,1);
+	transition: 1s ease;
+	transform: scale(0);
+}
+
+.header-controls div:nth-child(1).active {
+	transition: 2s ease-in;
+	transform: scale(1000);
+}
+
+.header-controls div:nth-child(2),
+.header-controls div:nth-child(3),
+.header-controls div:nth-child(4),
+.header-controls div:nth-child(5) {
+	font-family: Cormorant Garamond;
+	font-size: 2.4vh;
+	color: rgba(0,0,0,0.8);
+	transition: transform 0.4s;
+}
+
+.header-controls div:nth-child(4) img,
+.header-controls div:nth-child(5) img {
+  height: 2.5vh;
+}
+
+.frame {
+	align-self: center;
+	justify-self: center;
+	display: grid;
+	grid-template: repeat(2, 50%) / repeat(3, 25% 50% 25%);
+	width: 98vw;
+	aspect-ratio: 4 / 1.20;
+	margin: auto;
+	border-radius: 0.5vw;
+	box-shadow: 0 0 0 0.25vw rgba(240,240,240,0);
+	background: radial-gradient(circle at 72% 30%, rgba(45,45,45,1) 10%, rgba(20,20,20,1) 50%);
+	transition: box-shadow 1s ease 0.5s;
+}
+
+.frame:before {
+	content: '';
+	position: absolute;
+	z-index: -2;
+	width: 98vw;
+	aspect-ratio: 4 / 1.20;
+	border-radius: 0.5vw;
+	box-shadow: -0.8vw 0.8vw 4px 0 rgba(0,0,0,0.30);
+}
+
+.frame.dark {
+	transition: box-shadow 1s ease-in 0.5s;
+	box-shadow: 0 0 0 0.25vw rgba(240,240,240,0.25);
+}
+
+.left-speaker {
+	grid-row: 1/2;
+	grid-column: 1/2;
+	justify-self: start;
+	width: 79%;
+	height: 78%;
+	margin-left: 3%;
+	margin-top: 3%;
+	border: solid rgba(35,35,35,1) 0.35vw;
+	border-radius: 0.5vw;
+	box-shadow: 0px 0px 0 0.1vw rgba(0,0,0,1);
+	background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,1) 50%, transparent 52%),
+							radial-gradient(64% 64% at 50% 50%, rgba(0,0,0,0.3) 50%, transparent 52%);
+	background-color: rgba(35,35,35,1);
+	background-size: 0.47vw 0.47vw;
+}
+
+.menu {
+	grid-row: 1/2;
+	grid-column: 2/3;
+	align-self: center;
+	justify-self: center;
+	display: grid;
+	grid-template: repeat(2, 50%) / repeat(1, auto);
+	width: 80%;
+	height: 80%;
+}
+
+.display {
+	align-self: center;
+	justify-self: center;
+	display: grid;
+	width: 100%;
+	height: 100%;
+	border: solid #000 0.15vw;
+	border-radius: 0.5vw;
+	background-color: rgba(0,200,0,1);
+}
+
+.current-instrument-container {
+	display: grid;
+	align-items: center;
+	justify-items: center;
+	width: 20%;
+	height: 100%;
+}
+
+.current-instrument-container > img {
+	width: 3.5vw;
+}
+
+.current-instrument-container > span {
+	font-family: Nunito;
+	font-size: 1vw;
+	font-weight: bold;
+}
+
+.menu-buttons {
+	align-content: center;
+	justify-content: space-evenly;
+	display: grid;
+	grid-template: repeat(1, 50%) / repeat(4, 12%);
+}
+
+button {
+	font-family: Nunito;
+	font-size: 1vw;
+	color: rgba(255,255,255,1);
+	border: solid rgba(0,0,0,1) 0.1vw;
+	border-radius: 0.5vw;
+	box-shadow: -0.20vw 0.20vw 2px 0 rgba(0,0,0,1);
+	background-color: rgba(35,35,35,1);
+	cursor: pointer;
+}
+
+button.active {
+	font-size: 0.987vw;
+	box-shadow: inset -0.05vw 0.05vw 2px 0 rgba(0,0,0,1);
+}
+
+.right-speaker {
+	grid-row: 1/2;
+	grid-column: 3/4;
+	justify-self: end;
+	width: 79%;
+	height: 78%;
+	margin-top: 3%;
+	margin-right: 3%;
+	border: solid rgba(40,40,40,1) 0.35vw;
+	border-radius: 0.5vw;
+	box-shadow: 0px 0px 0 0.1vw rgba(0,0,0,1);
+	background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,1) 50%, transparent 52%),
+							radial-gradient(64% 64% at 50% 50%, rgba(0,0,0,0.3) 50%, transparent 52%);
+	background-color: rgba(40,40,40,1);
+	background-size: 0.47vw 0.47vw;
+}
+
+.keyboard {
+	grid-row: 2/3;
+	grid-column: 1/4;
+	display: grid;
+	grid-template: repeat(1, 97%) / repeat(1, 100%);
+	justify-self: center;
+	align-self: center;
+	width: 90%;
+	height: 100%;
+	padding: 0 0.4vw;
+	border-radius: 0.3vw 0.3vw 0 0;
+	background-color: rgba(0,0,0,1);
+}
+
+.white-key-set {
+	grid-row: 1/3;
+	grid-column: 1/21;
+	display: grid;
+	grid-template: repeat(1, 98%) / repeat(21, 1fr);
+	position: relative;
+}
+
+.white-key {
+	display: grid;
+	justify-content: center;
+	align-content: end;
+	font-family: Nunito;
+	font-size: 1.2vw;
+	border-radius: 0 0 0.3vw 0.3vw;
+	border-top: 0.15vw solid rgba(170,170,170,1);
+	border-right: 0.1vw solid rgba(0,0,0,0.3);
+	background: radial-gradient(circle at 72% 60%, rgba(240,240,240,1) 1%, transparent 50%);
+	background-color: rgba(215,215,215,1);
+	cursor: pointer;
+}
+
+.white-key.pressed {
+	height: 99.4%;
+	border-top: 0.25vw solid rgba(170,170,170,1);
+	background: radial-gradient(circle at 72% 40%, rgba(240,240,240,1) 1%, transparent 50%),
+							linear-gradient(-89deg, rgba(0,0,0,0.1) 4%, transparent 8%) 0 0;
+	background-color: rgba(215,215,215,1);
+}
+
+.white-key-cypher {
+	justify-self: center;
+	color: rgba(210,120,40,0);
+	margin-bottom: 1.5vw;
+	transition: color 0.5s linear;
+}
+
+.white-key-cypher.show-cypher {
+	color: rgba(210,120,40,0.8);
+	transition: color 1.5s linear;
+}
+
+.white-key-letter {
+	color: rgba(0,0,0,0);
+	padding-bottom: 0.5vw;
+	transition: color 0.5s linear;
+}
+
+.white-key-letter.show-letter {
+	color: rgba(0,0,0,0.4);
+	transition: color 0.5s linear;
+}
+
+.sharp-key-set {
+	grid-row: 1/3;
+	grid-column: 1/21;
+	display: grid;
+	grid-template: repeat(1, 97%) / repeat(21, 1fr);
+}
+
+.sharp-key {
+	position: relative;
+	z-index: 1;
+	width: 54%;
+	height: 60%;
+	margin-left: 72.5%;
+	border-radius: 0 0 0.3vw 0.3vw;
+	border-left: 0.3vw solid rgba(0,0,0,1);;
+	border-top: 0.15vw solid rgba(35,35,35,1);
+	border-right: 0.3vw solid rgba(0,0,0,1);
+	background-color: rgba(0,0,0,1);
+	cursor: pointer;
+}
+
+.sharp-key.active {
+	border-top: 0.18vw solid rgba(40,40,40,1);
+}
+
+.sharp-key-center {
+	content: '';
+	width: 100%;
+	height: 89%;
+	font-family: Nunito;
+	font-size: 0.9vw;
+	color: rgba(255,255,255,0);
+	border-radius: 0 0 0.8vw 0.8vw;
+	background: radial-gradient(circle at 80% 60%, rgba(80,80,80,1) 1%, rgba(50,50,50,1) 50%);
+}
+
+.sharp-key-center.active {
+	height: 98%;
+	background: radial-gradient(circle at 80% 30%, rgba(80,80,80,1) 1%, rgba(50,50,50,1) 40%);
+}
+
+.sharp-cypher {
+	position: absolute;
+	left: 50%;
+	top: 0.7vw;
+	transform: translateX(-50%);
+	transition: color 0.5s linear;
+}
+
+.sharp-cypher.active {
+	top: 0.8vw;
+}
+
+.sharp-cypher.show-sharp-cypher {
+	color: rgba(210,120,40,0.8);
+	transition: color 1.5s linear;
+}
+
+.flat-cypher {
+	position: absolute;
+	left: 50%;
+	top: 0.7vw;
+	transform: translateX(-50%);
+	transition: color 0.5s linear;
+}
+
+.flat-cypher.active {
+	top: 0.8vw;
+}
+
+.flat-cypher.show-flat-cypher {
+	color: rgba(210,120,40,0.8);
+	transition: color 1.5s linear;
+}
+
+.sharp-key-letter {
+	position: absolute;
+	left: 50%;
+	top: 5.8vw;
+	transform: translateX(-50%);
+	transition: color 0.5s linear;
+}
+
+.sharp-key-letter.active {
+	top: 6.5vw;
+	font-size: 0.88vw;
+}
+
+.sharp-key-letter.show-letter {
+	color: rgba(255,255,255,0.4);
+	transition: color 0.5s linear;
+}
+
+.sharp-key-shadow {
+	display: grid;
+	position: absolute;
+	top: -3%;
+	left: -15%;
+	width: 130%;
+	height: 103%;
+	border-radius: 0.3vw 0 0.3vw 0.3vw;
+	box-shadow: -0.3vw 0.2vw 4px 0.1vw rgba(0,0,0,0.28);
+}
+
+.sharp-key-shadow.active {
+	display: grid;
+	position: absolute;
+	top: -3%;
+	left: -15%;
+	width: 130%;
+	height: 101%;
+	border-radius: 0.3vw 0 0.3vw 0.3vw;
+	box-shadow: -0.3vw 0.2vw 4px 0.1vw rgba(0,0,0,0.28);
+	transform: translate(4.5%) rotate(-1.2deg);
+}
+
+.sharp-key-shadow::before {
+	content: '';
+	align-self: end;
+	justify-self: center;
+	width: 2vw;
+	height: 0.82vw;
+	border-radius: 7vw 7vw 2.5vw 2.5vw;
+	background-color: rgba(50,50,50,1);
+}
+
+.sharp-key-shadow.active::before {
+	height: 0;
+}
