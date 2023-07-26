@@ -1,3 +1,10 @@
+/* SECTION import */
+@font-face {
+	font-family: Nunito;
+	src: url(../fonts/Nunito-VariableFont_wght.ttf);
+}
+
+/* SECTION reset */
 * {
 	box-sizing: border-box;
 	margin: 0;
@@ -5,6 +12,7 @@
 	user-select: none;
 }
 
+/* SECTION main */
 html {
 	overflow: hidden;
 }
@@ -34,10 +42,6 @@ html {
 	cursor: pointer;
 }
 
-.header-controls div:hover {
-	transform: scale(1.25);
-}
-
 .header-controls div:nth-child(1) {
 	position: absolute;
 	z-index: -1;
@@ -48,16 +52,10 @@ html {
 	transform: scale(0);
 }
 
-.header-controls div:nth-child(1).active {
-	transition: 2s ease-in;
-	transform: scale(1000);
-}
-
 .header-controls div:nth-child(2),
 .header-controls div:nth-child(3),
 .header-controls div:nth-child(4),
 .header-controls div:nth-child(5) {
-	font-family: Cormorant Garamond;
 	font-size: 2.4vh;
 	color: rgba(0,0,0,0.8);
 	transition: transform 0.4s;
@@ -90,11 +88,6 @@ html {
 	aspect-ratio: 4 / 1.20;
 	border-radius: 0.5vw;
 	box-shadow: -0.8vw 0.8vw 4px 0 rgba(0,0,0,0.30);
-}
-
-.frame.dark {
-	transition: box-shadow 1s ease-in 0.5s;
-	box-shadow: 0 0 0 0.25vw rgba(240,240,240,0.25);
 }
 
 .left-speaker {
@@ -151,7 +144,7 @@ html {
 .current-instrument-container > span {
 	font-family: Nunito;
 	font-size: 1vw;
-	font-weight: bold;
+	font-weight: 500;
 }
 
 .menu-buttons {
@@ -168,13 +161,9 @@ button {
 	border: solid rgba(0,0,0,1) 0.1vw;
 	border-radius: 0.5vw;
 	box-shadow: -0.20vw 0.20vw 2px 0 rgba(0,0,0,1);
+	outline: none;
 	background-color: rgba(35,35,35,1);
 	cursor: pointer;
-}
-
-button.active {
-	font-size: 0.987vw;
-	box-shadow: inset -0.05vw 0.05vw 2px 0 rgba(0,0,0,1);
 }
 
 .right-speaker {
@@ -230,14 +219,6 @@ button.active {
 	cursor: pointer;
 }
 
-.white-key.pressed {
-	height: 99.4%;
-	border-top: 0.25vw solid rgba(170,170,170,1);
-	background: radial-gradient(circle at 72% 40%, rgba(240,240,240,1) 1%, transparent 50%),
-							linear-gradient(-89deg, rgba(0,0,0,0.1) 4%, transparent 8%) 0 0;
-	background-color: rgba(215,215,215,1);
-}
-
 .white-key-cypher {
 	justify-self: center;
 	color: rgba(210,120,40,0);
@@ -245,19 +226,9 @@ button.active {
 	transition: color 0.5s linear;
 }
 
-.white-key-cypher.show-cypher {
-	color: rgba(210,120,40,0.8);
-	transition: color 1.5s linear;
-}
-
 .white-key-letter {
 	color: rgba(0,0,0,0);
 	padding-bottom: 0.5vw;
-	transition: color 0.5s linear;
-}
-
-.white-key-letter.show-letter {
-	color: rgba(0,0,0,0.4);
 	transition: color 0.5s linear;
 }
 
@@ -282,10 +253,6 @@ button.active {
 	cursor: pointer;
 }
 
-.sharp-key.active {
-	border-top: 0.18vw solid rgba(40,40,40,1);
-}
-
 .sharp-key-center {
 	content: '';
 	width: 100%;
@@ -297,26 +264,12 @@ button.active {
 	background: radial-gradient(circle at 80% 60%, rgba(80,80,80,1) 1%, rgba(50,50,50,1) 50%);
 }
 
-.sharp-key-center.active {
-	height: 98%;
-	background: radial-gradient(circle at 80% 30%, rgba(80,80,80,1) 1%, rgba(50,50,50,1) 40%);
-}
-
 .sharp-cypher {
 	position: absolute;
 	left: 50%;
 	top: 0.7vw;
 	transform: translateX(-50%);
 	transition: color 0.5s linear;
-}
-
-.sharp-cypher.active {
-	top: 0.8vw;
-}
-
-.sharp-cypher.show-sharp-cypher {
-	color: rgba(210,120,40,0.8);
-	transition: color 1.5s linear;
 }
 
 .flat-cypher {
@@ -327,30 +280,11 @@ button.active {
 	transition: color 0.5s linear;
 }
 
-.flat-cypher.active {
-	top: 0.8vw;
-}
-
-.flat-cypher.show-flat-cypher {
-	color: rgba(210,120,40,0.8);
-	transition: color 1.5s linear;
-}
-
 .sharp-key-letter {
 	position: absolute;
 	left: 50%;
 	top: 5.8vw;
 	transform: translateX(-50%);
-	transition: color 0.5s linear;
-}
-
-.sharp-key-letter.active {
-	top: 6.5vw;
-	font-size: 0.88vw;
-}
-
-.sharp-key-letter.show-letter {
-	color: rgba(255,255,255,0.4);
 	transition: color 0.5s linear;
 }
 
@@ -365,6 +299,95 @@ button.active {
 	box-shadow: -0.3vw 0.2vw 4px 0.1vw rgba(0,0,0,0.28);
 }
 
+.sharp-key-shadow::before {
+	content: '';
+	align-self: end;
+	justify-self: center;
+	width: 2vw;
+	height: 0.82vw;
+	border-radius: 7vw 7vw 2.5vw 2.5vw;
+	background-color: rgba(50,50,50,1);
+}
+
+/* SECTION animations */
+html.dark {
+	background-color: rgb(30, 30, 30);
+}
+
+.header-controls div:hover {
+	transform: scale(1.25);
+}
+
+.header-controls div:nth-child(1).active {
+	transition: 2s ease-in;
+	transform: scale(1000);
+}
+
+.frame.dark {
+	transition: box-shadow 1s ease-in 0.5s;
+	box-shadow: 0 0 0 0.25vw rgba(240,240,240,0.25);
+}
+
+button.active {
+	font-size: 0.987vw;
+	box-shadow: inset -0.05vw 0.05vw 2px 0 rgba(0,0,0,1);
+}
+
+.white-key.pressed {
+	height: 99.4%;
+	border-top: 0.25vw solid rgba(170,170,170,1);
+	background: radial-gradient(circle at 72% 40%, rgba(240,240,240,1) 1%, transparent 50%),
+							linear-gradient(-89deg, rgba(0,0,0,0.1) 4%, transparent 8%) 0 0;
+	background-color: rgba(215,215,215,1);
+}
+
+.white-key-cypher.show-cypher {
+	color: rgba(210,120,40,0.8);
+	transition: color 1.5s linear;
+}
+
+.white-key-letter.show-letter {
+	color: rgba(0,0,0,0.4);
+	transition: color 0.5s linear;
+}
+
+.sharp-key.active {
+	border-top: 0.18vw solid rgba(40,40,40,1);
+}
+
+.sharp-key-center.active {
+	height: 98%;
+	background: radial-gradient(circle at 80% 30%, rgba(80,80,80,1) 1%, rgba(50,50,50,1) 40%);
+}
+
+.sharp-cypher.active {
+	top: 0.8vw;
+}
+
+.sharp-cypher.show-sharp-cypher {
+	color: rgba(210,120,40,0.8);
+	transition: color 1.5s linear;
+}
+
+.flat-cypher.active {
+	top: 0.8vw;
+}
+
+.flat-cypher.show-flat-cypher {
+	color: rgba(210,120,40,0.8);
+	transition: color 1.5s linear;
+}
+
+.sharp-key-letter.active {
+	top: 6.5vw;
+	font-size: 0.88vw;
+}
+
+.sharp-key-letter.show-letter {
+	color: rgba(255,255,255,0.4);
+	transition: color 0.5s linear;
+}
+
 .sharp-key-shadow.active {
 	display: grid;
 	position: absolute;
@@ -375,16 +398,6 @@ button.active {
 	border-radius: 0.3vw 0 0.3vw 0.3vw;
 	box-shadow: -0.3vw 0.2vw 4px 0.1vw rgba(0,0,0,0.28);
 	transform: translate(4.5%) rotate(-1.2deg);
-}
-
-.sharp-key-shadow::before {
-	content: '';
-	align-self: end;
-	justify-self: center;
-	width: 2vw;
-	height: 0.82vw;
-	border-radius: 7vw 7vw 2.5vw 2.5vw;
-	background-color: rgba(50,50,50,1);
 }
 
 .sharp-key-shadow.active::before {
