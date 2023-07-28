@@ -101,8 +101,7 @@ html {
 	border: solid rgba(35,35,35,1) 0.35vw;
 	border-radius: 0.5vw;
 	box-shadow: 0px 0px 0 0.1vw rgba(0,0,0,1);
-	background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,1) 50%, transparent 52%),
-							radial-gradient(64% 64% at 50% 50%, rgba(0,0,0,0.3) 50%, transparent 52%);
+	background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,1) 50%, transparent 52%), radial-gradient(64% 64% at 50% 50%, rgba(0,0,0,0.3) 50%, transparent 52%);
 	background-color: rgba(35,35,35,1);
 	background-size: 0.47vw 0.47vw;
 }
@@ -177,8 +176,7 @@ button {
 	border: solid rgba(40,40,40,1) 0.35vw;
 	border-radius: 0.5vw;
 	box-shadow: 0px 0px 0 0.1vw rgba(0,0,0,1);
-	background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,1) 50%, transparent 52%),
-							radial-gradient(64% 64% at 50% 50%, rgba(0,0,0,0.3) 50%, transparent 52%);
+	background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,1) 50%, transparent 52%),	radial-gradient(64% 64% at 50% 50%, rgba(0,0,0,0.3) 50%, transparent 52%);
 	background-color: rgba(40,40,40,1);
 	background-size: 0.47vw 0.47vw;
 }
@@ -232,14 +230,14 @@ button {
 	transition: color 0.5s linear;
 }
 
-.sharp-key-set {
+.black-key-set {
 	grid-row: 1/3;
 	grid-column: 1/21;
 	display: grid;
 	grid-template: repeat(1, 97%) / repeat(21, 1fr);
 }
 
-.sharp-key {
+.black-key {
 	position: relative;
 	z-index: 1;
 	width: 54%;
@@ -253,7 +251,7 @@ button {
 	cursor: pointer;
 }
 
-.sharp-key-center {
+.black-key-center {
 	content: '';
 	width: 100%;
 	height: 89%;
@@ -264,7 +262,7 @@ button {
 	background: radial-gradient(circle at 80% 60%, rgba(80,80,80,1) 1%, rgba(50,50,50,1) 50%);
 }
 
-.sharp-cypher {
+.sharp-key-cypher {
 	position: absolute;
 	left: 50%;
 	top: 0.7vw;
@@ -272,7 +270,7 @@ button {
 	transition: color 0.5s linear;
 }
 
-.flat-cypher {
+.flat-key-cypher {
 	position: absolute;
 	left: 50%;
 	top: 0.7vw;
@@ -280,7 +278,7 @@ button {
 	transition: color 0.5s linear;
 }
 
-.sharp-key-letter {
+.black-key-letter {
 	position: absolute;
 	left: 50%;
 	top: 5.8vw;
@@ -288,7 +286,7 @@ button {
 	transition: color 0.5s linear;
 }
 
-.sharp-key-shadow {
+.black-key-shadow {
 	display: grid;
 	position: absolute;
 	top: -3%;
@@ -299,7 +297,7 @@ button {
 	box-shadow: -0.3vw 0.2vw 4px 0.1vw rgba(0,0,0,0.28);
 }
 
-.sharp-key-shadow::before {
+.black-key-shadow::before {
 	content: '';
 	align-self: end;
 	justify-self: center;
@@ -333,11 +331,10 @@ button.active {
 	box-shadow: inset -0.05vw 0.05vw 2px 0 rgba(0,0,0,1);
 }
 
-.white-key.pressed {
+.white-key.active {
 	height: 99.4%;
 	border-top: 0.25vw solid rgba(170,170,170,1);
-	background: radial-gradient(circle at 72% 40%, rgba(240,240,240,1) 1%, transparent 50%),
-							linear-gradient(-89deg, rgba(0,0,0,0.1) 4%, transparent 8%) 0 0;
+	background: radial-gradient(circle at 72% 40%, rgba(240,240,240,1) 1%, transparent 50%),	linear-gradient(-89deg, rgba(0,0,0,0.1) 4%, transparent 8%) 0 0;
 	background-color: rgba(215,215,215,1);
 }
 
@@ -351,44 +348,44 @@ button.active {
 	transition: color 0.5s linear;
 }
 
-.sharp-key.active {
+.black-key.active {
 	border-top: 0.18vw solid rgba(40,40,40,1);
 }
 
-.sharp-key-center.active {
+.black-key-center.active {
 	height: 98%;
 	background: radial-gradient(circle at 80% 30%, rgba(80,80,80,1) 1%, rgba(50,50,50,1) 40%);
 }
 
-.sharp-cypher.active {
+.sharp-key-cypher.active {
 	top: 0.8vw;
 }
 
-.sharp-cypher.show-sharp-cypher {
+.sharp-key-cypher.show-sharp-cypher {
 	color: rgba(210,120,40,0.8);
 	transition: color 1.5s linear;
 }
 
-.flat-cypher.active {
+.flat-key-cypher.active {
 	top: 0.8vw;
 }
 
-.flat-cypher.show-flat-cypher {
+.flat-key-cypher.show-flat-cypher {
 	color: rgba(210,120,40,0.8);
 	transition: color 1.5s linear;
 }
 
-.sharp-key-letter.active {
+.black-key-letter.active {
 	top: 6.5vw;
 	font-size: 0.88vw;
 }
 
-.sharp-key-letter.show-letter {
+.black-key-letter.show-letter {
 	color: rgba(255,255,255,0.4);
 	transition: color 0.5s linear;
 }
 
-.sharp-key-shadow.active {
+.black-key-shadow.active {
 	display: grid;
 	position: absolute;
 	top: -3%;
@@ -400,6 +397,52 @@ button.active {
 	transform: translate(4.5%) rotate(-1.2deg);
 }
 
-.sharp-key-shadow.active::before {
+.black-key-shadow.active::before {
 	height: 0;
+}
+
+/* SECTION cookie consent banner */
+.cookie-banner {
+	display: flex;
+	flex-direction: column;
+	position: fixed;
+	left: 10px;
+	top: 100%;
+	width: 350px;
+	height: 200px;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 18pt;
+	color: rgba(0, 0, 0, 0.68);
+	text-align: center;
+	padding: 10px;
+	border: solid 2px rgb(198, 198, 198);
+	background-color: rgb(255, 255, 255);
+	transition: top 1.8s;
+}
+
+.cookie-banner.show {
+	top: 78.5%;
+}
+
+.cookie-banner > button {
+	align-self: center;
+	margin-top: 12px;
+	width: 150px;
+	height: 45px;
+	font-family: 'Times New Roman', Times, serif;
+	font-size: 18pt;
+	color: rgb(255, 255, 255);
+	border: none;
+	border-radius: 4px;
+	box-shadow: none;
+	cursor: pointer;
+	background-color: rgb(250, 40, 40);
+	transition: width 0.35s, height 0.35s, border-radius 0.35s, background-color 0.35s;
+}
+
+.cookie-banner > button.accepted {
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	background-color: rgb(10, 255, 10);
 }
