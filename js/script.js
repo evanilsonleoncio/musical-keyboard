@@ -381,8 +381,8 @@ window.onload = function () {
 			mainFrame.classList.toggle(`dark`);
     };
 
-		//
-		currentInstrument = localStorage.getItem(`currentInstrument`);
+		// Restores the current state of the chosen instrument
+		currentInstrument = localStorage.getItem(`currentInstrument`) || `piano`;
 
 		if (currentInstrument == `sax`) {
 			currentInstrumentImage.src = `images/${currentInstrument}ophone.png`;
