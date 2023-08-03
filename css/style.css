@@ -19,18 +19,18 @@ html {
 
 .container {
 	display: grid;
-	grid-template: repeat(2, 6% 94%) / repeat(1, 100%);
+	grid-template: 6% 94% / 100%;
 	width: 100vw;
 	height: 100vh;
 }
 
-.header-controls {
+.header {
 	display: flex;
 	justify-content: end;
 	align-items: end;
 }
 
-.header-controls div {
+.header-button {
 	display: grid;
 	align-items: center;
 	justify-items: center;
@@ -38,42 +38,34 @@ html {
 	aspect-ratio: 1 / 1;
 	margin-right: 30px;
 	border-radius: 50%;
+	font-size: 2.4vh;
+	color: rgba(0,0,0,0.8);
 	background-color: rgba(210,210,210,1);
 	cursor: pointer;
+	transition: transform 0.4s;
 }
 
-.header-controls div:nth-child(1) {
+.header-button img {
+  height: 2.5vh;
+}
+
+.header div:nth-child(1) {
 	position: absolute;
 	z-index: -1;
 	width: 4.8vh;
 	aspect-ratio: 1 / 1;
 	background-color: rgba(30,30,30,1);
-	transition: 1s ease;
 	transform: scale(0);
-}
-
-.header-controls div:nth-child(2),
-.header-controls div:nth-child(3),
-.header-controls div:nth-child(4),
-.header-controls div:nth-child(5) {
-	font-size: 2.4vh;
-	color: rgba(0,0,0,0.8);
-	transition: transform 0.4s;
-}
-
-.header-controls div:nth-child(4) img,
-.header-controls div:nth-child(5) img {
-  height: 2.5vh;
+	transition: 1s ease;
 }
 
 .frame {
+	display: grid;
+	grid-template: 50% 50% / 25% 50% 25%;
 	align-self: center;
 	justify-self: center;
-	display: grid;
-	grid-template: repeat(2, 50%) / repeat(3, 25% 50% 25%);
 	width: 98vw;
 	aspect-ratio: 4 / 1.20;
-	margin: auto;
 	border-radius: 0.5vw;
 	box-shadow: 0 0 0 0.25vw rgba(240,240,240,0);
 	background: radial-gradient(circle at 72% 30%, rgba(45,45,45,1) 10%, rgba(20,20,20,1) 50%);
@@ -102,24 +94,22 @@ html {
 	border-radius: 0.5vw;
 	box-shadow: 0px 0px 0 0.1vw rgba(0,0,0,1);
 	background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,1) 50%, transparent 52%), radial-gradient(64% 64% at 50% 50%, rgba(0,0,0,0.3) 50%, transparent 52%);
-	background-color: rgba(35,35,35,1);
 	background-size: 0.47vw 0.47vw;
+	background-color: rgba(35,35,35,1);
 }
 
 .menu {
+	display: grid;
+	grid-template: 50% 50% / auto;
 	grid-row: 1/2;
 	grid-column: 2/3;
 	align-self: center;
 	justify-self: center;
-	display: grid;
-	grid-template: repeat(2, 50%) / repeat(1, auto);
 	width: 80%;
 	height: 80%;
 }
 
 .display {
-	align-self: center;
-	justify-self: center;
 	display: grid;
 	width: 100%;
 	height: 100%;
@@ -150,17 +140,17 @@ html {
 	align-content: center;
 	justify-content: space-evenly;
 	display: grid;
-	grid-template: repeat(1, 50%) / repeat(4, 12%);
+	grid-template: 50% / repeat(4, 12%);
 }
 
-button {
-	font-family: Nunito;
-	font-size: 1vw;
-	color: rgba(255,255,255,1);
+.menu-buttons button {
 	border: solid rgba(0,0,0,1) 0.1vw;
 	border-radius: 0.5vw;
 	box-shadow: -0.20vw 0.20vw 2px 0 rgba(0,0,0,1);
 	outline: none;
+	font-family: Nunito;
+	font-size: 1vw;
+	color: rgba(255,255,255,1);
 	background-color: rgba(35,35,35,1);
 	cursor: pointer;
 }
@@ -177,29 +167,30 @@ button {
 	border-radius: 0.5vw;
 	box-shadow: 0px 0px 0 0.1vw rgba(0,0,0,1);
 	background: radial-gradient(50% 50% at 50% 50%, rgba(0,0,0,1) 50%, transparent 52%),	radial-gradient(64% 64% at 50% 50%, rgba(0,0,0,0.3) 50%, transparent 52%);
-	background-color: rgba(40,40,40,1);
 	background-size: 0.47vw 0.47vw;
+	background-color: rgba(40,40,40,1);
 }
 
 .keyboard {
+	display: grid;
+	grid-template: 97% / 100%;
 	grid-row: 2/3;
 	grid-column: 1/4;
-	display: grid;
-	grid-template: repeat(1, 97%) / repeat(1, 100%);
 	justify-self: center;
 	align-self: center;
 	width: 90%;
 	height: 100%;
 	padding: 0 0.4vw;
 	border-radius: 0.3vw 0.3vw 0 0;
+	font-family: Nunito;
 	background-color: rgba(0,0,0,1);
 }
 
 .white-key-set {
+	display: grid;
+	grid-template: 98% / repeat(21, 1fr);
 	grid-row: 1/3;
 	grid-column: 1/21;
-	display: grid;
-	grid-template: repeat(1, 98%) / repeat(21, 1fr);
 	position: relative;
 }
 
@@ -207,11 +198,10 @@ button {
 	display: grid;
 	justify-content: center;
 	align-content: end;
-	font-family: Nunito;
-	font-size: 1.2vw;
-	border-radius: 0 0 0.3vw 0.3vw;
 	border-top: 0.15vw solid rgba(170,170,170,1);
 	border-right: 0.1vw solid rgba(0,0,0,0.3);
+	border-radius: 0 0 0.3vw 0.3vw;
+	font-size: 1.2vw;
 	background: radial-gradient(circle at 72% 60%, rgba(240,240,240,1) 1%, transparent 50%);
 	background-color: rgba(215,215,215,1);
 	cursor: pointer;
@@ -231,10 +221,10 @@ button {
 }
 
 .black-key-set {
+	display: grid;
+	grid-template: 97% / repeat(21, 1fr);
 	grid-row: 1/3;
 	grid-column: 1/21;
-	display: grid;
-	grid-template: repeat(1, 97%) / repeat(21, 1fr);
 }
 
 .black-key {
@@ -243,10 +233,10 @@ button {
 	width: 54%;
 	height: 60%;
 	margin-left: 72.5%;
-	border-radius: 0 0 0.3vw 0.3vw;
 	border-left: 0.3vw solid rgba(0,0,0,1);;
 	border-top: 0.15vw solid rgba(35,35,35,1);
 	border-right: 0.3vw solid rgba(0,0,0,1);
+	border-radius: 0 0 0.3vw 0.3vw;
 	background-color: rgba(0,0,0,1);
 	cursor: pointer;
 }
@@ -255,22 +245,13 @@ button {
 	content: '';
 	width: 100%;
 	height: 89%;
-	font-family: Nunito;
 	font-size: 0.9vw;
 	color: rgba(255,255,255,0);
 	border-radius: 0 0 0.8vw 0.8vw;
 	background: radial-gradient(circle at 80% 60%, rgba(80,80,80,1) 1%, rgba(50,50,50,1) 50%);
 }
 
-.sharp-key-cypher {
-	position: absolute;
-	left: 50%;
-	top: 0.7vw;
-	transform: translateX(-50%);
-	transition: color 0.5s linear;
-}
-
-.flat-key-cypher {
+.sharp-key-cypher, .flat-key-cypher, .black-key-letter {
 	position: absolute;
 	left: 50%;
 	top: 0.7vw;
@@ -279,11 +260,7 @@ button {
 }
 
 .black-key-letter {
-	position: absolute;
-	left: 50%;
 	top: 5.8vw;
-	transform: translateX(-50%);
-	transition: color 0.5s linear;
 }
 
 .black-key-shadow {
@@ -312,13 +289,18 @@ html.dark {
 	background-color: rgb(30, 30, 30);
 }
 
-.header-controls div:hover {
+.header-button:hover {
 	transform: scale(1.25);
 }
 
-.header-controls div:nth-child(1).active {
-	transition: 2s ease-in;
-	transform: scale(1000);
+.header-button:active {
+	transform: scale(0.95);
+	transition: transform 0.15s;
+}
+
+.header div:nth-child(1).active {
+	transition: 1s ease-in;
+	transform: scale(500);
 }
 
 .frame.dark {
@@ -357,20 +339,11 @@ button.active {
 	background: radial-gradient(circle at 80% 30%, rgba(80,80,80,1) 1%, rgba(50,50,50,1) 40%);
 }
 
-.sharp-key-cypher.active {
+.sharp-key-cypher.active, .flat-key-cypher.active {
 	top: 0.8vw;
 }
 
-.sharp-key-cypher.show-sharp-cypher {
-	color: rgba(210,120,40,0.8);
-	transition: color 1.5s linear;
-}
-
-.flat-key-cypher.active {
-	top: 0.8vw;
-}
-
-.flat-key-cypher.show-flat-cypher {
+.sharp-key-cypher.show-sharp-cypher, .flat-key-cypher.show-flat-cypher {
 	color: rgba(210,120,40,0.8);
 	transition: color 1.5s linear;
 }
@@ -399,50 +372,4 @@ button.active {
 
 .black-key-shadow.active::before {
 	height: 0;
-}
-
-/* SECTION cookie consent banner */
-.cookie-banner {
-	display: flex;
-	flex-direction: column;
-	position: fixed;
-	left: 10px;
-	top: 100%;
-	width: 350px;
-	height: 200px;
-	font-family: 'Times New Roman', Times, serif;
-	font-size: 18pt;
-	color: rgba(0, 0, 0, 0.68);
-	text-align: center;
-	padding: 10px;
-	border: solid 2px rgb(198, 198, 198);
-	background-color: rgb(255, 255, 255);
-	transition: top 1.8s;
-}
-
-.cookie-banner.show {
-	top: 78.5%;
-}
-
-.cookie-banner > button {
-	align-self: center;
-	margin-top: 12px;
-	width: 150px;
-	height: 45px;
-	font-family: 'Times New Roman', Times, serif;
-	font-size: 18pt;
-	color: rgb(255, 255, 255);
-	border: none;
-	border-radius: 4px;
-	box-shadow: none;
-	cursor: pointer;
-	background-color: rgb(250, 40, 40);
-	transition: width 0.35s, height 0.35s, border-radius 0.35s, background-color 0.35s;
-}
-
-.cookie-banner > button.accepted {
-	width: 45px;
-	height: 45px;
-	border-radius: 50%;
-	background-color: rgb(10, 255, 10);
 }

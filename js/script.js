@@ -1,6 +1,6 @@
 // This section controls enabling/disabling of cyphers
-const showSharpCypher = document.querySelector(`.header-controls div:nth-child(2)`);
-const showFlatCypher = document.querySelector(`.header-controls div:nth-child(3)`);
+const showSharpCypher = document.querySelector(`.header div:nth-child(2)`);
+const showFlatCypher = document.querySelector(`.header div:nth-child(3)`);
 
 const whiteKeyCypherSet = document.querySelectorAll(`.white-key-cypher`);
 const blackKeyCypherSet = document.querySelectorAll(`.bkc`);
@@ -52,7 +52,7 @@ showFlatCypher.addEventListener(`click`, () => {
 });
 
 // This section controls enabling/disabling of the keymap
-const showKeymap = document.querySelector(`.header-controls div:nth-child(4)`);
+const showKeymap = document.querySelector(`.header div:nth-child(4)`);
 const whiteKeyLetters = document.querySelectorAll(`.white-key-letter`);
 const blackKeyLetters = document.querySelectorAll(`.black-key-letter`);
 
@@ -79,8 +79,8 @@ showKeymap.addEventListener(`click`, () => {
 
 // This section controls enabling/disabling dark mode
 const htmlBackground = document.querySelector(`html`);
-const lightSwitch = document.querySelector(`.header-controls div:nth-child(5)`);
-const darknessExpansion = document.querySelector(`.header-controls div:nth-child(1)`);
+const lightSwitch = document.querySelector(`.header div:nth-child(5)`);
+const darknessExpansion = document.querySelector(`.header div:nth-child(1)`);
 const mainFrame = document.querySelector(`.frame`);
 
 let backgroundTimeoutId;
@@ -148,11 +148,11 @@ instrumentSet.forEach((button) => {
 const keyInteractionEnter = (pressedKey) => {
 	if (pressedKey.classList.contains(`black-key`)) {
 		pressedKey.classList.add(`active`);
-		pressedKey.firstChild.classList.add(`active`);
-		pressedKey.firstChild.firstChild.classList.add(`active`);
-		pressedKey.firstChild.firstChild.nextSibling.classList.add(`active`);
-		pressedKey.firstChild.lastChild.classList.add(`active`);
-		pressedKey.lastChild.classList.add(`active`);
+		pressedKey.children[0].classList.add(`active`);
+		pressedKey.children[0].children[0].classList.add(`active`);
+		pressedKey.children[0].children[1].classList.add(`active`);
+		pressedKey.children[0].children[2].classList.add(`active`);
+		pressedKey.children[1].classList.add(`active`);
 	} else if (pressedKey.classList.contains(`white-key`)) {
 		pressedKey.classList.add(`active`);
 	};
@@ -161,11 +161,11 @@ const keyInteractionEnter = (pressedKey) => {
 const keyInteractionLeave = (pressedKey) => {
 	if (pressedKey.classList.contains(`black-key`)) {
 		pressedKey.classList.remove(`active`);
-		pressedKey.firstChild.classList.remove(`active`);
-		pressedKey.firstChild.firstChild.classList.remove(`active`);
-		pressedKey.firstChild.firstChild.nextSibling.classList.remove(`active`);
-		pressedKey.firstChild.lastChild.classList.remove(`active`);
-		pressedKey.lastChild.classList.remove(`active`);
+		pressedKey.children[0].classList.remove(`active`);
+		pressedKey.children[0].children[0].classList.remove(`active`);
+		pressedKey.children[0].children[1].classList.remove(`active`);
+		pressedKey.children[0].children[2].classList.remove(`active`);
+		pressedKey.children[1].classList.remove(`active`);
 	} else if (pressedKey.classList.contains(`white-key`)) {
 		pressedKey.classList.remove(`active`);
 	};
@@ -325,21 +325,68 @@ document.addEventListener(`keyup`, (event) => {
 
 // This section controls the maintenance of user preferences
 window.onload = function () {
-	// Checks if cookies have been accepted
+	// Creates and checks if cookies have been accepted
   if (!localStorage.getItem(`cookieConsent`)) {
-    const cookieConsentBanner = document.querySelector(`.cookie-banner`);
-    const cookieConsentButton = document.querySelector(`#cookie-consent`);
+		const cookieConsentBanner = document.createElement(`div`);
+    const cookieBannerText = document.createTextNode(`This site uses cookies only to store your preferences. Don't worry! No personal data is being collected.`);
+    const cookieConsentButton = document.createElement(`button`);
 
-    cookieConsentBanner.classList.add(`show`);
+    cookieConsentButton.textContent = `Accept`;
+
+    cookieConsentBanner.append(cookieBannerText, cookieConsentButton);
+
+    document.body.appendChild(cookieConsentBanner);
+
+		cookieConsentBanner.style.cssText = `
+        display: grid;
+        grid-template: 65% 35% / 100%;
+        justify-items: center;
+        align-items: center;
+        position: fixed;
+        left: 1rem;
+        bottom: -12rem;
+        width: 24rem;
+        height: 12rem;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.5rem;
+        color: rgba(0, 0, 0, 0.68);
+        text-align: center;
+        border: solid 2px rgb(198, 198, 198);
+        background-color: rgb(255, 255, 255);
+        transition: bottom 1.8s;
+      `;
+
+      cookieConsentButton.style.cssText = `
+        width: 10rem;
+        height: 2.8rem;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 1.5rem;
+        color: rgb(255, 255, 255);
+        border: none;
+        border-radius: 0.25rem;
+        background-color: rgb(250, 40, 40);
+				cursor: pointer;
+        transition: width 0.5s, height 0.5s, border-radius 0.5s, background-color 0.5s;
+      `;
+
+      setTimeout(() => {
+        cookieConsentBanner.style.bottom = `1rem`;
+      }, 1000);
 
     cookieConsentButton.addEventListener(`click`, () => {
       localStorage.setItem(`cookieConsent`, true);
-      cookieConsentButton.classList.add(`accepted`);
+      cookieConsentButton.style.width = `2.8rem`;
+      cookieConsentButton.style.borderRadius = `50%`;
+      cookieConsentButton.style.backgroundColor = `rgb(10, 255, 10)`;
       cookieConsentButton.textContent = `√`;
 
       setTimeout(()=> {
-        cookieConsentBanner.classList.remove(`show`);
+        cookieConsentBanner.style.bottom = `-100%`;
       }, 2000);
+
+      setTimeout(()=> {
+        cookieConsentBanner.remove();
+      }, 4000);
     });
   } else {
 		// Restores the current state of the cyphers 

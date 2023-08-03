@@ -1,102 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<title>Musical Keyboard</title>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="icon" type="image/x-icon" href="images/favicon.ico">
-		<link rel="stylesheet" href="css/style.css">
-	</head>
+<head>
+	<title>Musical Keyboard</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" type="image/x-icon" href="images/favicon.ico">
+	<link rel="stylesheet" href="css/style.css">
+</head>
 
-	<body>
-		<div class="container">
-			<div class="header-controls">
-				<div></div>
-				<div>♯</div>
-				<div>♭</div>
-				<div><img src="images/keyboard.png"></img></div>
-				<div><img src="images/moon.png"></img></div>
+<body>
+	<div class="container">
+		<div class="header">
+			<div class="header-button"></div>
+			<div class="header-button">♯</div>
+			<div class="header-button">♭</div>
+			<div class="header-button"><img src="images/keyboard.png"></img></div>
+			<div class="header-button"><img src="images/moon.png"></img></div>
+		</div>
+
+		<div class="frame">
+			<div class="left-speaker"></div>
+
+			<div class="menu">
+				<div class="display">
+					<div class="current-instrument-container">
+						<img src="images/piano.png"></img>
+						<span>Piano</span>
+					</div>
+				</div>
+
+				<div class="menu-buttons">
+					<button>Piano</button>
+					<button>Sax</button>
+					<button>Flute</button>
+					<button>Guitar</button>
+				</div>
 			</div>
 
-			<div class="frame">
-				<div class="left-speaker"></div>
+			<div class="right-speaker"></div>
 
-				<div class="menu">
-					<div class="display">
-						<div class="current-instrument-container">
-							<img src="images/piano.png"></img>
-							<span>Piano</span>
+			<div class="keyboard">
+				<div class="white-key-set">
+					<div class="key white-key" id="Z">
+						<div class="white-key-cypher">C</div>
+						<div class="white-key-letter">Z</div>
+					</div>
+
+					<div class="key white-key" id="C">
+						<div class="white-key-cypher">D</div>
+						<div class="white-key-letter">C</div>
+					</div>
+
+					<div class="key white-key" id="B">
+						<div class="white-key-cypher">E</div>
+						<div class="white-key-letter">B</div>
+					</div>
+
+					<div class="key white-key" id="N">
+						<div class="white-key-cypher">F</div>
+						<div class="white-key-letter">N</div>
+					</div>
+
+					<div class="key white-key" id="A">
+						<div class="white-key-cypher">G</div>
+						<div class="white-key-letter">A</div>
+					</div>
+
+					<div class="key white-key" id="D">
+						<div class="white-key-cypher">A</div>
+						<div class="white-key-letter">D</div>
+					</div>
+
+					<div class="key white-key" id="G">
+						<div class="white-key-cypher">B</div>
+						<div class="white-key-letter">G</div>
+					</div>
+
+					<div class="key white-key" id="H">
+						<div class="white-key-cypher">C</div>
+						<div class="white-key-letter">H</div>
+					</div>
+
+					<div class="key white-key" id="K">
+						<div class="white-key-cypher">D</div>
+						<div class="white-key-letter">K</div>
+					</div>
+
+					<div class="key white-key" id="Q">
+						<div class="white-key-cypher">E</div>
+						<div class="white-key-letter">Q</div>
+					</div>
+
+					<div class="key white-key" id="W">
+						<div class="white-key-cypher">F</div>
+						<div class="white-key-letter">W</div>
+					</div>
+
+					<div class="key white-key" id="R">
+						<div class="white-key-cypher">G</div>
+						<div class="white-key-letter">R</div>
+					</div>
+
+					<div class="key white-key" id="Y">
+						<div class="white-key-cypher">A</div>
+						<div class="white-key-letter">Y</div>
+					</div>
+
+					<div class="key white-key" id="I">
+						<div class="white-key-cypher">B</div>
+						<div class="white-key-letter">I</div>
+					</div>
+
+					<div class="key white-key" id="O">
+						<div class="white-key-cypher">C</div>
+						<div class="white-key-letter">O</div>
+					</div>
+
+					<div class="key white-key" id="1">
+						<div class="white-key-cypher">D</div>
+						<div class="white-key-letter">1</div>
+					</div>
+
+					<div class="key white-key" id="3">
+						<div class="white-key-cypher">E</div>
+						<div class="white-key-letter">3</div>
+					</div>
+
+					<div class="key white-key" id="4">
+						<div class="white-key-cypher">F</div>
+						<div class="white-key-letter">4</div>
+					</div>
+
+					<div class="key white-key" id="6">
+						<div class="white-key-cypher">G</div>
+						<div class="white-key-letter">6</div>
+					</div>
+
+					<div class="key white-key" id="8">
+						<div class="white-key-cypher">A</div>
+						<div class="white-key-letter">8</div>
+					</div>
+
+					<div class="key white-key" id="0">
+						<div class="white-key-cypher">B</div>
+						<div class="white-key-letter">0</div>
+					</div>
+				</div>
+
+				<div class="black-key-set">
+					<div class="key black-key" id="X">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">C♯</div>
+							<div class="bkc flat-key-cypher">D♭</div>
+							<div class="black-key-letter">X</div>
 						</div>
+
+						<div class="black-key-shadow"></div>
 					</div>
 
-					<div class="menu-buttons">
-						<button>Piano</button>
-						<button>Sax</button>
-						<button>Flute</button>
-						<button>Guitar</button>
-					</div>
-				</div>
+					<div class="key black-key" id="V">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">D♯</div>
+							<div class="bkc flat-key-cypher">E♭</div>
+							<div class="black-key-letter">V</div>
+						</div>
 
-				<div class="right-speaker"></div>
-
-				<div class="keyboard">
-					<div class="white-key-set">
-						<div class="key white-key" id="Z"><div class="white-key-cypher">C</div><div class="white-key-letter">Z</div></div>
-						<div class="key white-key" id="C"><div class="white-key-cypher">D</div><div class="white-key-letter">C</div></div>
-						<div class="key white-key" id="B"><div class="white-key-cypher">E</div><div class="white-key-letter">B</div></div>
-						<div class="key white-key" id="N"><div class="white-key-cypher">F</div><div class="white-key-letter">N</div></div>
-						<div class="key white-key" id="A"><div class="white-key-cypher">G</div><div class="white-key-letter">A</div></div>
-						<div class="key white-key" id="D"><div class="white-key-cypher">A</div><div class="white-key-letter">D</div></div>
-						<div class="key white-key" id="G"><div class="white-key-cypher">B</div><div class="white-key-letter">G</div></div>
-						<div class="key white-key" id="H"><div class="white-key-cypher">C</div><div class="white-key-letter">H</div></div>
-						<div class="key white-key" id="K"><div class="white-key-cypher">D</div><div class="white-key-letter">K</div></div>
-						<div class="key white-key" id="Q"><div class="white-key-cypher">E</div><div class="white-key-letter">Q</div></div>
-						<div class="key white-key" id="W"><div class="white-key-cypher">F</div><div class="white-key-letter">W</div></div>
-						<div class="key white-key" id="R"><div class="white-key-cypher">G</div><div class="white-key-letter">R</div></div>
-						<div class="key white-key" id="Y"><div class="white-key-cypher">A</div><div class="white-key-letter">Y</div></div>
-						<div class="key white-key" id="I"><div class="white-key-cypher">B</div><div class="white-key-letter">I</div></div>
-						<div class="key white-key" id="O"><div class="white-key-cypher">C</div><div class="white-key-letter">O</div></div>
-						<div class="key white-key" id="1"><div class="white-key-cypher">D</div><div class="white-key-letter">1</div></div>
-						<div class="key white-key" id="3"><div class="white-key-cypher">E</div><div class="white-key-letter">3</div></div>
-						<div class="key white-key" id="4"><div class="white-key-cypher">F</div><div class="white-key-letter">4</div></div>
-						<div class="key white-key" id="6"><div class="white-key-cypher">G</div><div class="white-key-letter">6</div></div>
-						<div class="key white-key" id="8"><div class="white-key-cypher">A</div><div class="white-key-letter">8</div></div>
-						<div class="key white-key" id="0"><div class="white-key-cypher">B</div><div class="white-key-letter">0</div></div>
+						<div class="black-key-shadow"></div>
 					</div>
 
-					<div class="black-key-set">
-						<div class="key black-key" id="X"><div class="black-key-center"><div class="bkc sharp-key-cypher">C♯</div><div class="bkc flat-key-cypher">D♭</div><div class="black-key-letter">X</div></div><div class="black-key-shadow"></div></div>
-						<div class="key black-key" id="V"><div class="black-key-center"><div class="bkc sharp-key-cypher">D♯</div><div class="bkc flat-key-cypher">E♭</div><div class="black-key-letter">V</div></div><div class="black-key-shadow"></div></div>
-						<div></div>
-						<div class="key black-key" id="M"><div class="black-key-center"><div class="bkc sharp-key-cypher">F♯</div><div class="bkc flat-key-cypher">G♭</div><div class="black-key-letter">M</div></div><div class="black-key-shadow"></div></div>
-						<div class="key black-key" id="S"><div class="black-key-center"><div class="bkc sharp-key-cypher">G♯</div><div class="bkc flat-key-cypher">A♭</div><div class="black-key-letter">S</div></div><div class="black-key-shadow"></div></div>
-						<div class="key black-key" id="F"><div class="black-key-center"><div class="bkc sharp-key-cypher">A♯</div><div class="bkc flat-key-cypher">B♭</div><div class="black-key-letter">F</div></div><div class="black-key-shadow"></div></div>
-						<div></div>
-						<div class="key black-key" id="J"><div class="black-key-center"><div class="bkc sharp-key-cypher">C♯</div><div class="bkc flat-key-cypher">D♭</div><div class="black-key-letter">J</div></div><div class="black-key-shadow"></div></div>
-						<div class="key black-key" id="L"><div class="black-key-center"><div class="bkc sharp-key-cypher">D♯</div><div class="bkc flat-key-cypher">E♭</div><div class="black-key-letter">L</div></div><div class="black-key-shadow"></div></div>
-						<div></div>
-						<div class="key black-key" id="E"><div class="black-key-center"><div class="bkc sharp-key-cypher">F♯</div><div class="bkc flat-key-cypher">G♭</div><div class="black-key-letter">E</div></div><div class="black-key-shadow"></div></div>
-						<div class="key black-key" id="T"><div class="black-key-center"><div class="bkc sharp-key-cypher">G♯</div><div class="bkc flat-key-cypher">A♭</div><div class="black-key-letter">T</div></div><div class="black-key-shadow"></div></div>
-						<div class="key black-key" id="U"><div class="black-key-center"><div class="bkc sharp-key-cypher">A♯</div><div class="bkc flat-key-cypher">B♭</div><div class="black-key-letter">U</div></div><div class="black-key-shadow"></div></div>
-						<div></div>
-						<div class="key black-key" id="P"><div class="black-key-center"><div class="bkc sharp-key-cypher">C♯</div><div class="bkc flat-key-cypher">D♭</div><div class="black-key-letter">P</div></div><div class="black-key-shadow"></div></div>
-						<div class="key black-key" id="2"><div class="black-key-center"><div class="bkc sharp-key-cypher">D♯</div><div class="bkc flat-key-cypher">E♭</div><div class="black-key-letter">2</div></div><div class="black-key-shadow"></div></div>
-						<div></div>
-						<div class="key black-key" id="5"><div class="black-key-center"><div class="bkc sharp-key-cypher">F♯</div><div class="bkc flat-key-cypher">G♭</div><div class="black-key-letter">5</div></div><div class="black-key-shadow"></div></div>
-						<div class="key black-key" id="7"><div class="black-key-center"><div class="bkc sharp-key-cypher">G♯</div><div class="bkc flat-key-cypher">A♭</div><div class="black-key-letter">7</div></div><div class="black-key-shadow"></div></div>
-						<div class="key black-key" id="9"><div class="black-key-center"><div class="bkc sharp-key-cypher">A♯</div><div class="bkc flat-key-cypher">B♭</div><div class="black-key-letter">9</div></div><div class="black-key-shadow"></div></div>
-						<div></div>
+					<div></div>
+
+					<div class="key black-key" id="M">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">F♯</div>
+							<div class="bkc flat-key-cypher">G♭</div>
+							<div class="black-key-letter">M</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
 					</div>
+
+					<div class="key black-key" id="S">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">G♯</div>
+							<div class="bkc flat-key-cypher">A♭</div>
+							<div class="black-key-letter">S</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div class="key black-key" id="F">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">A♯</div>
+							<div class="bkc flat-key-cypher">B♭</div>
+							<div class="black-key-letter">F</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div></div>
+
+					<div class="key black-key" id="J">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">C♯</div>
+							<div class="bkc flat-key-cypher">D♭</div>
+							<div class="black-key-letter">J</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div class="key black-key" id="L">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">D♯</div>
+							<div class="bkc flat-key-cypher">E♭</div>
+							<div class="black-key-letter">L</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div></div>
+
+					<div class="key black-key" id="E">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">F♯</div>
+							<div class="bkc flat-key-cypher">G♭</div>
+							<div class="black-key-letter">E</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div class="key black-key" id="T">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">G♯</div>
+							<div class="bkc flat-key-cypher">A♭</div>
+							<div class="black-key-letter">T</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div class="key black-key" id="U">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">A♯</div>
+							<div class="bkc flat-key-cypher">B♭</div>
+							<div class="black-key-letter">U</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div></div>
+
+					<div class="key black-key" id="P">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">C♯</div>
+							<div class="bkc flat-key-cypher">D♭</div>
+							<div class="black-key-letter">P</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div class="key black-key" id="2">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">D♯</div>
+							<div class="bkc flat-key-cypher">E♭</div>
+							<div class="black-key-letter">2</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div></div>
+
+					<div class="key black-key" id="5">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">F♯</div>
+							<div class="bkc flat-key-cypher">G♭</div>
+							<div class="black-key-letter">5</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div class="key black-key" id="7">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">G♯</div>
+							<div class="bkc flat-key-cypher">A♭</div>
+							<div class="black-key-letter">7</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div class="key black-key" id="9">
+						<div class="black-key-center">
+							<div class="bkc sharp-key-cypher">A♯</div>
+							<div class="bkc flat-key-cypher">B♭</div>
+							<div class="black-key-letter">9</div>
+						</div>
+
+						<div class="black-key-shadow"></div>
+					</div>
+
+					<div></div>
 				</div>
 			</div>
 		</div>
+	</div>
 
-		<div class="cookie-banner">
-			<p>This site uses cookies only to store your preferences.</p>
-			<p>Don't worry! No personal data is being collected.</p>
-			<button id="cookie-consent">Accept</button>
-		</div>
+	<script src="js/script.js"></script>
+</body>
 
-  	<script src="js/script.js"></script>
-	</body>
 </html>
